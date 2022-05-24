@@ -1,0 +1,44 @@
+First 12 Coords popped off the stack...
+(5,6)
+(6,6)
+(4,6)
+(4,7)
+(4,8)
+(3,8)
+(2,8)
+(1,8)
+(1,7)
+(3,6)
+(5,5)
+(5,4)
+...
+
+First 12 Coordinates popped from queue...
+(5,6)
+(5,5)
+(4,6)
+(6,6)
+(5,4)
+(3,6)
+(4,7)
+(5,3)
+(4,4)
+(4,8)
+(5,2)
+(3,4)
+...
+
+	When using a stack, the algorithm traverses so that while we are first at our original coordinate (sr,sc), we then travel
+a certain direction as far as possible, until we can't anymore, so then we move to the next direction and add each discovevered
+node/point to the stack. This differs from using a queue, where we start at the original coordinate (sr,sc), and then instead of
+travelling all the way down a specific branch, we check only one coordinate distance away from the origin, one direction at a time.
+The order for exploring directions is the same (W,N,E,S), but the way which we do so is very different. We can compare the way we 
+explore a maze using a queue to a radar of sorts. If you analyze a radar in slow-motion, a radar first tracks its origin point, then
+searches "one unit" around its origin, then "two", then "three", and so on.
+	By analyzing the nature of stacks and queues themselves, we can see why these algorithms search in the way they do. A stack has
+only a single place where we can add items and remove items, which is the top. The key position which marks the difference between 
+stacks and queues specifically in our code is after the while loop when we 'pop' and item. If using a stack, we pop the most recently
+added item. In reference to our example maze which was provided, this would prompt us to continue exploring south in a maze until a wall
+is reached, in which we would search in other directions. With a queue, each new point to explore is added to the END of the queue (not to
+fron/top), so points closer to the origin are discovered before the points which are further away.(stack visits most recently pushed points,
+where queue visits oldest points which were pushed).
